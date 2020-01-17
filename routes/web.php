@@ -11,6 +11,19 @@
 |
 */
 
+use App\Http\Controllers\HelloController;
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/hello', function(){
+    $data = 'this is a var';
+    return view('hello', compact('data'));
+});
+route::get('/test', function(){
+    $data = "This is a test";
+    return view('hello')->with('data');
+});
+Route::get('index','HelloController@index');
+Route::get('/about', 'HelloController@about_test');
+Route::get('/services', 'HelloController@services');
